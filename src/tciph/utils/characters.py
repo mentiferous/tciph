@@ -10,6 +10,10 @@ def get_symbols():
     return "".join(choice(symbols) for _ in range(randbelow(max_length) + min_length))
 
 
+def get_rotation():
+    return randbelow(2)
+
+
 characters = f"""
 a="{get_symbols()}"
 b="{get_symbols()}"
@@ -88,4 +92,6 @@ underscore="{get_symbols()}"
 
 salt_0="{get_symbols()}"
 salt_1="{get_symbols()}"
+
+rotate="{get_rotation()}"
 """

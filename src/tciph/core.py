@@ -85,6 +85,7 @@ def cipher():
         q,
         question_mark,
         r,
+        rotate,
         s,
         salt_0,
         salt_1,
@@ -176,6 +177,9 @@ def cipher():
     text = text.replace("=", equals)
     text = text.replace("_", underscore)
 
+    if rotate == "1":
+        text = text[::-1]
+
     console.print(f"[i]Ciphered text[/i]: {text}")
 
 
@@ -244,6 +248,7 @@ def decipher():
         q,
         question_mark,
         r,
+        rotate,
         s,
         salt_0,
         salt_1,
@@ -259,6 +264,9 @@ def decipher():
     )
 
     text = console.input("[i]Text to decipher[/i]: ")
+
+    if rotate == "1":
+        text = text[::-1]
 
     text = text.replace(salt_0, "")
     text = text.replace(salt_1, "")
