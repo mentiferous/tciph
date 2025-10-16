@@ -83,6 +83,8 @@ apostrophe="{get_symbols()}"
 question_mark="{get_symbols()}"
 exclamation_mark="{get_symbols()}"
 hyphen="{get_symbols()}"
+equals="{get_symbols()}"
+underscore="{get_symbols()}"
 
 salt_0="{get_symbols()}"
 salt_1="{get_symbols()}"

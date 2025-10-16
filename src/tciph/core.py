@@ -67,6 +67,7 @@ def cipher():
         digit_8,
         digit_9,
         e,
+        equals,
         exclamation_mark,
         f,
         g,
@@ -90,6 +91,7 @@ def cipher():
         space,
         t,
         u,
+        underscore,
         v,
         w,
         x,
@@ -171,6 +173,8 @@ def cipher():
     text = text.replace("?", question_mark)
     text = text.replace("!", exclamation_mark)
     text = text.replace("-", hyphen)
+    text = text.replace("=", equals)
+    text = text.replace("_", underscore)
 
     console.print(f"[i]Ciphered text[/i]: {text}")
 
@@ -222,6 +226,7 @@ def decipher():
         digit_8,
         digit_9,
         e,
+        equals,
         exclamation_mark,
         f,
         g,
@@ -245,6 +250,7 @@ def decipher():
         space,
         t,
         u,
+        underscore,
         v,
         w,
         x,
@@ -329,5 +335,7 @@ def decipher():
     text = text.replace(question_mark, "?")
     text = text.replace(exclamation_mark, "!")
     text = text.replace(hyphen, "-")
+    text = text.replace(equals, "=")
+    text = text.replace(underscore, "_")
 
     console.print(f"[i]Deciphered text[/i]: {text}")
