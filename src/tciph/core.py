@@ -89,6 +89,7 @@ def cipher():
         s,
         salt_0,
         salt_1,
+        salt_2,
         space,
         t,
         u,
@@ -104,7 +105,7 @@ def cipher():
 
     text = text.replace("a", f"{salt_0}{a}{salt_0}")
     text = text.replace("b", f"{salt_1}{b}{salt_1}")
-    text = text.replace("c", c)
+    text = text.replace("c", f"{salt_2}{c}{salt_2}")
     text = text.replace("d", d)
     text = text.replace("e", e)
     text = text.replace("f", f)
@@ -252,6 +253,7 @@ def decipher():
         s,
         salt_0,
         salt_1,
+        salt_2,
         space,
         t,
         u,
@@ -270,6 +272,7 @@ def decipher():
 
     text = text.replace(salt_0, "")
     text = text.replace(salt_1, "")
+    text = text.replace(salt_2, "")
 
     text = text.replace(a, "a")
     text = text.replace(b, "b")

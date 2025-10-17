@@ -92,6 +92,7 @@ underscore="{get_symbols()}"
 
 salt_0="{get_symbols()}"
 salt_1="{get_symbols()}"
+salt_2="{get_symbols()}"
 
 rotate="{get_rotation()}"
 """
