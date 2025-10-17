@@ -178,10 +178,10 @@ def cipher():
     text = text.replace("=", equals)
     text = text.replace("_", underscore)
 
-    if rotate == "1":
+    if rotate == 1:
         text = text[::-1]
 
-    console.print(f"[i]Ciphered text[/i]: {text}")
+    console.print(f"[i]Ciphered[/i]: {text}")
 
 
 def decipher():
@@ -267,7 +267,7 @@ def decipher():
 
     text = console.input("[i]Decipher[/i]: ")
 
-    if rotate == "1":
+    if rotate == 1:
         text = text[::-1]
 
     text = text.replace(salt_0, "")
@@ -349,4 +349,4 @@ def decipher():
     text = text.replace(equals, "=")
     text = text.replace(underscore, "_")
 
-    console.print(f"[i]Deciphered text[/i]: {text}")
+    console.print(f"[i]Deciphered[/i]: {text}")
