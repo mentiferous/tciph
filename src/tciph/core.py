@@ -5,18 +5,14 @@ from tciph.utils.console import console
 
 
 def gen_key():
-    key = "key.py"
-
-    with open(key, "w") as file:
+    with open("key.py", "w") as file:
         file.write(characters.strip("\n"))
 
-    console.print(f"[b][*][/b] Key generated: [b]{key}[/b]")
+    console.print(f"[b][*][/b] Key generated")
 
 
 def get_key():
-    key = Path("key.py")
-
-    if not key.is_file():
+    if not Path("key.py").is_file():
         gen_key()
 
 
