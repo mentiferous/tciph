@@ -1,7 +1,7 @@
 import argparse
 
 from tciph import __version__
-from tciph.core import cipher, decipher, gen_key
+from tciph.core import cipher, cipher_file, decipher, decipher_file, gen_key
 
 
 def main():
@@ -34,6 +34,16 @@ def main():
         action="store_true",
         help="decipher plaintext",
     )
+    parser.add_argument(
+        "--cipher-file",
+        action="store_true",
+        help="cipher plaintext from a file",
+    )
+    parser.add_argument(
+        "--decipher-file",
+        action="store_true",
+        help="decipher plaintext from a file",
+    )
 
     args = parser.parse_args()
 
@@ -45,6 +55,12 @@ def main():
 
     elif args.decipher:
         decipher()
+
+    elif args.cipher_file:
+        cipher_file()
+
+    elif args.decipher_file:
+        decipher_file()
 
     else:
         parser.print_help()
