@@ -3,7 +3,7 @@ from secrets import choice, randbelow
 from tciph.key.symbols import symbols
 
 min_length = 3
-max_length = 6
+max_length = 5
 
 
 def get_symbols():

@@ -1,8 +1,8 @@
-from base64 import b64decode, b64encode
 from pathlib import Path
 from string import ascii_lowercase, ascii_uppercase
 
 from tciph.key.characters import characters
+from tciph.utils.compression import compress, decompress
 from tciph.utils.console import console
 
 
@@ -66,6 +66,7 @@ def load_key():
         equals,
         exclamation_mark,
         f,
+        forward_slash,
         g,
         h,
         hyphen,
@@ -78,6 +79,7 @@ def load_key():
         o,
         p,
         period,
+        plus,
         q,
         question_mark,
         r,
@@ -121,14 +123,6 @@ def load_key():
     )
 
     return locals()
-
-
-def compress(char):
-    return b64encode(char.encode()).decode()
-
-
-def decompress(char):
-    return b64decode(char.encode()).decode()
 
 
 def cipher():
