@@ -89,6 +89,8 @@ exclamation_mark="{get_symbols()}"
 hyphen="{get_symbols()}"
 equals="{get_symbols()}"
 underscore="{get_symbols()}"
+plus="{get_symbols()}"
+forward_slash="{get_symbols()}"
 
 salt_0="{get_symbols()}"
 salt_1="{get_symbols()}"

@@ -1,3 +1,4 @@
+from base64 import b64decode, b64encode
 from pathlib import Path
 from string import ascii_lowercase, ascii_uppercase
 
@@ -122,12 +123,22 @@ def load_key():
     return locals()
 
 
+def compress(char):
+    return b64encode(char.encode()).decode()
+
+
+def decompress(char):
+    return b64decode(char.encode()).decode()
+
+
 def cipher():
     key_check()
 
     key = load_key()
 
     text = console.input("[i]Cipher[/i]: ")
+
+    text = compress(text)
 
     text = text.replace("a", f"{key['salt_0']}{key['a']}{key['salt_0']}")
     text = text.replace("b", f"{key['salt_1']}{key['b']}{key['salt_1']}")
@@ -183,7 +194,6 @@ def cipher():
     text = text.replace("Y", key["Y"])
     text = text.replace("Z", key["Z"])
 
-
     text = text.replace("0", key["digit_0"])
     text = text.replace("1", key["digit_1"])
     text = text.replace("2", key["digit_2"])
@@ -204,6 +214,8 @@ def cipher():
     text = text.replace("-", key["hyphen"])
     text = text.replace("=", key["equals"])
     text = text.replace("_", key["underscore"])
+    text = text.replace("+", key["plus"])
+    text = text.replace("/", key["forward_slash"])
 
     if key["rotate"] == 1:
         text = text[::-1]
@@ -242,6 +254,10 @@ def decipher():
     text = text.replace(key["hyphen"], "-")
     text = text.replace(key["equals"], "=")
     text = text.replace(key["underscore"], "_")
+    text = text.replace(key["plus"], "+")
+    text = text.replace(key["forward_slash"], "/")
+
+    text = decompress(text)
 
     console.print(f"[i]Deciphered[/i]: {text}")
 
@@ -312,7 +328,6 @@ def cipher_file():
     text = text.replace("Y", key["Y"])
     text = text.replace("Z", key["Z"])
 
-
     text = text.replace("0", key["digit_0"])
     text = text.replace("1", key["digit_1"])
     text = text.replace("2", key["digit_2"])
@@ -333,6 +348,8 @@ def cipher_file():
     text = text.replace("-", key["hyphen"])
     text = text.replace("=", key["equals"])
     text = text.replace("_", key["underscore"])
+    text = text.replace("+", key["plus"])
+    text = text.replace("/", key["forward_slash"])
 
     if key["rotate"] == 1:
         text = text[::-1]
@@ -377,6 +394,8 @@ def decipher_file():
     text = text.replace(key["hyphen"], "-")
     text = text.replace(key["equals"], "=")
     text = text.replace(key["underscore"], "_")
+    text = text.replace(key["plus"], "+")
+    text = text.replace(key["forward_slash"], "/")
 
     with open(file, "w") as f:
         f.write(text)
