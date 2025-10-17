@@ -18,6 +18,7 @@ options:
 - Compression
 - Substitution
 - Rotation
+- Salting
 
 ## License
 
