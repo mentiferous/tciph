@@ -1,22 +1,22 @@
 from pathlib import Path
 
-from tciph.utils.characters import characters
+from tciph.key.characters import characters
 from tciph.utils.console import console
 
 
 def gen_key():
-    key_file = "key.py"
+    key = "key.py"
 
-    with open(key_file, "w") as file:
+    with open(key, "w") as file:
         file.write(characters.strip("\n"))
 
-    console.print(f"[b][*][/b] Key generated: [b]{key_file}[/b]")
+    console.print(f"[b][*][/b] Key generated: [b]{key}[/b]")
 
 
 def get_key():
-    key_file = Path("key.py")
+    key = Path("key.py")
 
-    if not key_file.is_file():
+    if not key.is_file():
         gen_key()
 
 

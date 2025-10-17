@@ -1,6 +1,6 @@
 from secrets import choice, randbelow
 
-from tciph.utils.symbols import symbols
+from tciph.key.symbols import symbols
 
 min_length = 3
 max_length = 7
