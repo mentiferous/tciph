@@ -1,4 +1,5 @@
 from pathlib import Path
+from string import ascii_lowercase, ascii_uppercase
 
 from tciph.key.characters import characters
 from tciph.utils.console import console
@@ -18,36 +19,36 @@ def key_check():
 
 def load_key():
     from key import (
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+        G,
+        H,
+        I,
+        J,
+        K,
+        L,
+        M,
+        N,
+        O,
+        P,
+        Q,
+        R,
+        S,
+        T,
+        U,
+        V,
+        W,
+        X,
+        Y,
+        Z,
         a,
         apostrophe,
         b,
         c,
-        capital_a,
-        capital_b,
-        capital_c,
-        capital_d,
-        capital_e,
-        capital_f,
-        capital_g,
-        capital_h,
-        capital_i,
-        capital_j,
-        capital_k,
-        capital_l,
-        capital_m,
-        capital_n,
-        capital_o,
-        capital_p,
-        capital_q,
-        capital_r,
-        capital_s,
-        capital_t,
-        capital_u,
-        capital_v,
-        capital_w,
-        capital_x,
-        capital_y,
-        capital_z,
         comma,
         d,
         digit_0,
@@ -155,32 +156,33 @@ def cipher():
     text = text.replace("y", f"{key['salt_24']}{key['y']}{key['salt_24']}")
     text = text.replace("z", f"{key['salt_25']}{key['z']}{key['salt_25']}")
 
-    text = text.replace("A", key["capital_a"])
-    text = text.replace("B", key["capital_b"])
-    text = text.replace("C", key["capital_c"])
-    text = text.replace("D", key["capital_d"])
-    text = text.replace("E", key["capital_e"])
-    text = text.replace("F", key["capital_f"])
-    text = text.replace("G", key["capital_g"])
-    text = text.replace("H", key["capital_h"])
-    text = text.replace("I", key["capital_i"])
-    text = text.replace("J", key["capital_j"])
-    text = text.replace("K", key["capital_k"])
-    text = text.replace("L", key["capital_l"])
-    text = text.replace("M", key["capital_m"])
-    text = text.replace("N", key["capital_n"])
-    text = text.replace("O", key["capital_o"])
-    text = text.replace("P", key["capital_p"])
-    text = text.replace("Q", key["capital_q"])
-    text = text.replace("R", key["capital_r"])
-    text = text.replace("S", key["capital_s"])
-    text = text.replace("T", key["capital_t"])
-    text = text.replace("U", key["capital_u"])
-    text = text.replace("V", key["capital_v"])
-    text = text.replace("W", key["capital_w"])
-    text = text.replace("X", key["capital_x"])
-    text = text.replace("Y", key["capital_y"])
-    text = text.replace("Z", key["capital_z"])
+    text = text.replace("A", key["A"])
+    text = text.replace("B", key["B"])
+    text = text.replace("C", key["C"])
+    text = text.replace("D", key["D"])
+    text = text.replace("E", key["E"])
+    text = text.replace("F", key["F"])
+    text = text.replace("G", key["G"])
+    text = text.replace("H", key["H"])
+    text = text.replace("I", key["I"])
+    text = text.replace("J", key["J"])
+    text = text.replace("K", key["K"])
+    text = text.replace("L", key["L"])
+    text = text.replace("M", key["M"])
+    text = text.replace("N", key["N"])
+    text = text.replace("O", key["O"])
+    text = text.replace("P", key["P"])
+    text = text.replace("Q", key["Q"])
+    text = text.replace("R", key["R"])
+    text = text.replace("S", key["S"])
+    text = text.replace("T", key["T"])
+    text = text.replace("U", key["U"])
+    text = text.replace("V", key["V"])
+    text = text.replace("W", key["W"])
+    text = text.replace("X", key["X"])
+    text = text.replace("Y", key["Y"])
+    text = text.replace("Z", key["Z"])
+
 
     text = text.replace("0", key["digit_0"])
     text = text.replace("1", key["digit_1"])
@@ -219,97 +221,17 @@ def decipher():
     if key["rotate"] == 1:
         text = text[::-1]
 
-    text = text.replace(key["salt_0"], "")
-    text = text.replace(key["salt_1"], "")
-    text = text.replace(key["salt_2"], "")
-    text = text.replace(key["salt_3"], "")
-    text = text.replace(key["salt_4"], "")
-    text = text.replace(key["salt_5"], "")
-    text = text.replace(key["salt_6"], "")
-    text = text.replace(key["salt_7"], "")
-    text = text.replace(key["salt_8"], "")
-    text = text.replace(key["salt_9"], "")
-    text = text.replace(key["salt_10"], "")
-    text = text.replace(key["salt_11"], "")
-    text = text.replace(key["salt_12"], "")
-    text = text.replace(key["salt_13"], "")
-    text = text.replace(key["salt_14"], "")
-    text = text.replace(key["salt_15"], "")
-    text = text.replace(key["salt_16"], "")
-    text = text.replace(key["salt_17"], "")
-    text = text.replace(key["salt_18"], "")
-    text = text.replace(key["salt_19"], "")
-    text = text.replace(key["salt_20"], "")
-    text = text.replace(key["salt_21"], "")
-    text = text.replace(key["salt_22"], "")
-    text = text.replace(key["salt_23"], "")
-    text = text.replace(key["salt_24"], "")
-    text = text.replace(key["salt_25"], "")
+    for x, _ in enumerate(ascii_lowercase):
+        text = text.replace(key[f"salt_{x}"], "")
 
-    text = text.replace(key["a"], "a")
-    text = text.replace(key["b"], "b")
-    text = text.replace(key["c"], "c")
-    text = text.replace(key["d"], "d")
-    text = text.replace(key["e"], "e")
-    text = text.replace(key["f"], "f")
-    text = text.replace(key["g"], "g")
-    text = text.replace(key["h"], "h")
-    text = text.replace(key["i"], "i")
-    text = text.replace(key["j"], "j")
-    text = text.replace(key["k"], "k")
-    text = text.replace(key["l"], "l")
-    text = text.replace(key["m"], "m")
-    text = text.replace(key["n"], "n")
-    text = text.replace(key["o"], "o")
-    text = text.replace(key["p"], "p")
-    text = text.replace(key["q"], "q")
-    text = text.replace(key["r"], "r")
-    text = text.replace(key["s"], "s")
-    text = text.replace(key["t"], "t")
-    text = text.replace(key["u"], "u")
-    text = text.replace(key["v"], "v")
-    text = text.replace(key["w"], "w")
-    text = text.replace(key["x"], "x")
-    text = text.replace(key["y"], "y")
-    text = text.replace(key["z"], "z")
+    for char in ascii_lowercase:
+        text = text.replace(key[char], char)
 
-    text = text.replace(key["capital_a"], "A")
-    text = text.replace(key["capital_b"], "B")
-    text = text.replace(key["capital_c"], "C")
-    text = text.replace(key["capital_d"], "D")
-    text = text.replace(key["capital_e"], "E")
-    text = text.replace(key["capital_f"], "F")
-    text = text.replace(key["capital_g"], "G")
-    text = text.replace(key["capital_h"], "H")
-    text = text.replace(key["capital_i"], "I")
-    text = text.replace(key["capital_j"], "J")
-    text = text.replace(key["capital_k"], "K")
-    text = text.replace(key["capital_l"], "L")
-    text = text.replace(key["capital_m"], "M")
-    text = text.replace(key["capital_n"], "N")
-    text = text.replace(key["capital_o"], "O")
-    text = text.replace(key["capital_p"], "P")
-    text = text.replace(key["capital_q"], "Q")
-    text = text.replace(key["capital_r"], "R")
-    text = text.replace(key["capital_s"], "S")
-    text = text.replace(key["capital_t"], "T")
-    text = text.replace(key["capital_u"], "U")
-    text = text.replace(key["capital_v"], "V")
-    text = text.replace(key["capital_w"], "W")
-    text = text.replace(key["capital_x"], "X")
-    text = text.replace(key["capital_y"], "Y")
-    text = text.replace(key["capital_z"], "Z")
+    for char in ascii_uppercase:
+        text = text.replace(key[char], char)
 
-    text = text.replace(key["digit_0"], "0")
-    text = text.replace(key["digit_1"], "1")
-    text = text.replace(key["digit_2"], "2")
-    text = text.replace(key["digit_3"], "3")
-    text = text.replace(key["digit_4"], "4")
-    text = text.replace(key["digit_5"], "5")
-    text = text.replace(key["digit_6"], "6")
-    text = text.replace(key["digit_7"], "7")
-    text = text.replace(key["digit_8"], "8")
-    text = text.replace(key["digit_9"], "9")
+    for x in range(10):
+        text = text.replace(key[f"digit_{x}"], str(x))
 
     text = text.replace(key["space"], " ")
     text = text.replace(key["period"], ".")
@@ -363,32 +285,33 @@ def cipher_file():
     text = text.replace("y", f"{key['salt_24']}{key['y']}{key['salt_24']}")
     text = text.replace("z", f"{key['salt_25']}{key['z']}{key['salt_25']}")
 
-    text = text.replace("A", key["capital_a"])
-    text = text.replace("B", key["capital_b"])
-    text = text.replace("C", key["capital_c"])
-    text = text.replace("D", key["capital_d"])
-    text = text.replace("E", key["capital_e"])
-    text = text.replace("F", key["capital_f"])
-    text = text.replace("G", key["capital_g"])
-    text = text.replace("H", key["capital_h"])
-    text = text.replace("I", key["capital_i"])
-    text = text.replace("J", key["capital_j"])
-    text = text.replace("K", key["capital_k"])
-    text = text.replace("L", key["capital_l"])
-    text = text.replace("M", key["capital_m"])
-    text = text.replace("N", key["capital_n"])
-    text = text.replace("O", key["capital_o"])
-    text = text.replace("P", key["capital_p"])
-    text = text.replace("Q", key["capital_q"])
-    text = text.replace("R", key["capital_r"])
-    text = text.replace("S", key["capital_s"])
-    text = text.replace("T", key["capital_t"])
-    text = text.replace("U", key["capital_u"])
-    text = text.replace("V", key["capital_v"])
-    text = text.replace("W", key["capital_w"])
-    text = text.replace("X", key["capital_x"])
-    text = text.replace("Y", key["capital_y"])
-    text = text.replace("Z", key["capital_z"])
+    text = text.replace("A", key["A"])
+    text = text.replace("B", key["B"])
+    text = text.replace("C", key["C"])
+    text = text.replace("D", key["D"])
+    text = text.replace("E", key["E"])
+    text = text.replace("F", key["F"])
+    text = text.replace("G", key["G"])
+    text = text.replace("H", key["H"])
+    text = text.replace("I", key["I"])
+    text = text.replace("J", key["J"])
+    text = text.replace("K", key["K"])
+    text = text.replace("L", key["L"])
+    text = text.replace("M", key["M"])
+    text = text.replace("N", key["N"])
+    text = text.replace("O", key["O"])
+    text = text.replace("P", key["P"])
+    text = text.replace("Q", key["Q"])
+    text = text.replace("R", key["R"])
+    text = text.replace("S", key["S"])
+    text = text.replace("T", key["T"])
+    text = text.replace("U", key["U"])
+    text = text.replace("V", key["V"])
+    text = text.replace("W", key["W"])
+    text = text.replace("X", key["X"])
+    text = text.replace("Y", key["Y"])
+    text = text.replace("Z", key["Z"])
+
 
     text = text.replace("0", key["digit_0"])
     text = text.replace("1", key["digit_1"])
@@ -433,97 +356,17 @@ def decipher_file():
     if key["rotate"] == 1:
         text = text[::-1]
 
-    text = text.replace(key["salt_0"], "")
-    text = text.replace(key["salt_1"], "")
-    text = text.replace(key["salt_2"], "")
-    text = text.replace(key["salt_3"], "")
-    text = text.replace(key["salt_4"], "")
-    text = text.replace(key["salt_5"], "")
-    text = text.replace(key["salt_6"], "")
-    text = text.replace(key["salt_7"], "")
-    text = text.replace(key["salt_8"], "")
-    text = text.replace(key["salt_9"], "")
-    text = text.replace(key["salt_10"], "")
-    text = text.replace(key["salt_11"], "")
-    text = text.replace(key["salt_12"], "")
-    text = text.replace(key["salt_13"], "")
-    text = text.replace(key["salt_14"], "")
-    text = text.replace(key["salt_15"], "")
-    text = text.replace(key["salt_16"], "")
-    text = text.replace(key["salt_17"], "")
-    text = text.replace(key["salt_18"], "")
-    text = text.replace(key["salt_19"], "")
-    text = text.replace(key["salt_20"], "")
-    text = text.replace(key["salt_21"], "")
-    text = text.replace(key["salt_22"], "")
-    text = text.replace(key["salt_23"], "")
-    text = text.replace(key["salt_24"], "")
-    text = text.replace(key["salt_25"], "")
+    for x, _ in enumerate(ascii_lowercase):
+        text = text.replace(key[f"salt_{x}"], "")
 
-    text = text.replace(key["a"], "a")
-    text = text.replace(key["b"], "b")
-    text = text.replace(key["c"], "c")
-    text = text.replace(key["d"], "d")
-    text = text.replace(key["e"], "e")
-    text = text.replace(key["f"], "f")
-    text = text.replace(key["g"], "g")
-    text = text.replace(key["h"], "h")
-    text = text.replace(key["i"], "i")
-    text = text.replace(key["j"], "j")
-    text = text.replace(key["k"], "k")
-    text = text.replace(key["l"], "l")
-    text = text.replace(key["m"], "m")
-    text = text.replace(key["n"], "n")
-    text = text.replace(key["o"], "o")
-    text = text.replace(key["p"], "p")
-    text = text.replace(key["q"], "q")
-    text = text.replace(key["r"], "r")
-    text = text.replace(key["s"], "s")
-    text = text.replace(key["t"], "t")
-    text = text.replace(key["u"], "u")
-    text = text.replace(key["v"], "v")
-    text = text.replace(key["w"], "w")
-    text = text.replace(key["x"], "x")
-    text = text.replace(key["y"], "y")
-    text = text.replace(key["z"], "z")
+    for char in ascii_lowercase:
+        text = text.replace(key[char], char)
 
-    text = text.replace(key["capital_a"], "A")
-    text = text.replace(key["capital_b"], "B")
-    text = text.replace(key["capital_c"], "C")
-    text = text.replace(key["capital_d"], "D")
-    text = text.replace(key["capital_e"], "E")
-    text = text.replace(key["capital_f"], "F")
-    text = text.replace(key["capital_g"], "G")
-    text = text.replace(key["capital_h"], "H")
-    text = text.replace(key["capital_i"], "I")
-    text = text.replace(key["capital_j"], "J")
-    text = text.replace(key["capital_k"], "K")
-    text = text.replace(key["capital_l"], "L")
-    text = text.replace(key["capital_m"], "M")
-    text = text.replace(key["capital_n"], "N")
-    text = text.replace(key["capital_o"], "O")
-    text = text.replace(key["capital_p"], "P")
-    text = text.replace(key["capital_q"], "Q")
-    text = text.replace(key["capital_r"], "R")
-    text = text.replace(key["capital_s"], "S")
-    text = text.replace(key["capital_t"], "T")
-    text = text.replace(key["capital_u"], "U")
-    text = text.replace(key["capital_v"], "V")
-    text = text.replace(key["capital_w"], "W")
-    text = text.replace(key["capital_x"], "X")
-    text = text.replace(key["capital_y"], "Y")
-    text = text.replace(key["capital_z"], "Z")
+    for char in ascii_uppercase:
+        text = text.replace(key[char], char)
 
-    text = text.replace(key["digit_0"], "0")
-    text = text.replace(key["digit_1"], "1")
-    text = text.replace(key["digit_2"], "2")
-    text = text.replace(key["digit_3"], "3")
-    text = text.replace(key["digit_4"], "4")
-    text = text.replace(key["digit_5"], "5")
-    text = text.replace(key["digit_6"], "6")
-    text = text.replace(key["digit_7"], "7")
-    text = text.replace(key["digit_8"], "8")
-    text = text.replace(key["digit_9"], "9")
+    for x in range(10):
+        text = text.replace(key[f"digit_{x}"], str(x))
 
     text = text.replace(key["space"], " ")
     text = text.replace(key["period"], ".")
