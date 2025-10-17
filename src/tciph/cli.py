@@ -26,13 +26,13 @@ def main():
         "-c",
         "--cipher",
         action="store_true",
-        help="cipher text",
+        help="cipher plaintext",
     )
     parser.add_argument(
         "-d",
         "--decipher",
         action="store_true",
-        help="decipher text",
+        help="decipher plaintext",
     )
 
     args = parser.parse_args()

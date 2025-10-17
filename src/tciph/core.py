@@ -101,7 +101,7 @@ def cipher():
         z,
     )
 
-    text = console.input("[i]Text to cipher[/i]: ")
+    text = console.input("[i]Cipher[/i]: ")
 
     text = text.replace("a", f"{salt_0}{a}{salt_0}")
     text = text.replace("b", f"{salt_1}{b}{salt_1}")
@@ -265,7 +265,7 @@ def decipher():
         z,
     )
 
-    text = console.input("[i]Text to decipher[/i]: ")
+    text = console.input("[i]Decipher[/i]: ")
 
     if rotate == "1":
         text = text[::-1]
