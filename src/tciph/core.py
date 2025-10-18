@@ -266,6 +266,8 @@ def cipher_file():
     with open(file, "r") as f:
         text = f.read()
 
+    text = compress(text)
+
     key = load_key()
 
     text = text.replace("a", f"{key['salt_0']}{key['a']}{key['salt_0']}")
@@ -390,6 +392,8 @@ def decipher_file():
     text = text.replace(key["underscore"], "_")
     text = text.replace(key["plus"], "+")
     text = text.replace(key["forward_slash"], "/")
+
+    text = decompress(text)
 
     with open(file, "w") as f:
         f.write(text)
