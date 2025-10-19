@@ -3,7 +3,7 @@ from string import ascii_lowercase, ascii_uppercase
 
 from tciph.key.characters import characters
 from tciph.utils.console import console
-from tciph.utils.encoding import encocde, decode
+from tciph.utils.encoding import decode, encode
 
 
 def gen_key():
