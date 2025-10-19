@@ -1,5 +1,5 @@
 from pathlib import Path
-from string import ascii_lowercase, ascii_uppercase
+from string import ascii_lowercase, ascii_uppercase, digits
 
 from tciph.key.characters import characters
 from tciph.utils.console import console
@@ -10,7 +10,7 @@ def gen_key():
     with open("key.py", "w") as f:
         f.write(characters)
 
-    console.print(f"[b][*][/b] Key generated")
+    console.print("[b][*][/b] Key generated")
 
 
 def check_key():
@@ -125,7 +125,7 @@ def load_key():
     return locals()
 
 
-def cipher():
+def cipher_text():
     check_key()
 
     key = load_key()
@@ -134,70 +134,14 @@ def cipher():
 
     text = encode(text)
 
-    text = text.replace("a", f"{key['salt_0']}{key['a']}{key['salt_0']}")
-    text = text.replace("b", f"{key['salt_1']}{key['b']}{key['salt_1']}")
-    text = text.replace("c", f"{key['salt_2']}{key['c']}{key['salt_2']}")
-    text = text.replace("d", f"{key['salt_3']}{key['d']}{key['salt_3']}")
-    text = text.replace("e", f"{key['salt_4']}{key['e']}{key['salt_4']}")
-    text = text.replace("f", f"{key['salt_5']}{key['f']}{key['salt_5']}")
-    text = text.replace("g", f"{key['salt_6']}{key['g']}{key['salt_6']}")
-    text = text.replace("h", f"{key['salt_7']}{key['h']}{key['salt_7']}")
-    text = text.replace("i", f"{key['salt_8']}{key['i']}{key['salt_8']}")
-    text = text.replace("j", f"{key['salt_9']}{key['j']}{key['salt_9']}")
-    text = text.replace("k", f"{key['salt_10']}{key['k']}{key['salt_10']}")
-    text = text.replace("l", f"{key['salt_11']}{key['l']}{key['salt_11']}")
-    text = text.replace("m", f"{key['salt_12']}{key['m']}{key['salt_12']}")
-    text = text.replace("n", f"{key['salt_13']}{key['n']}{key['salt_13']}")
-    text = text.replace("o", f"{key['salt_14']}{key['o']}{key['salt_14']}")
-    text = text.replace("p", f"{key['salt_15']}{key['p']}{key['salt_15']}")
-    text = text.replace("q", f"{key['salt_16']}{key['q']}{key['salt_16']}")
-    text = text.replace("r", f"{key['salt_17']}{key['r']}{key['salt_17']}")
-    text = text.replace("s", f"{key['salt_18']}{key['s']}{key['salt_18']}")
-    text = text.replace("t", f"{key['salt_19']}{key['t']}{key['salt_19']}")
-    text = text.replace("u", f"{key['salt_20']}{key['u']}{key['salt_20']}")
-    text = text.replace("v", f"{key['salt_21']}{key['v']}{key['salt_21']}")
-    text = text.replace("w", f"{key['salt_22']}{key['w']}{key['salt_22']}")
-    text = text.replace("x", f"{key['salt_23']}{key['x']}{key['salt_23']}")
-    text = text.replace("y", f"{key['salt_24']}{key['y']}{key['salt_24']}")
-    text = text.replace("z", f"{key['salt_25']}{key['z']}{key['salt_25']}")
+    for x, char in enumerate(ascii_lowercase):
+        text = text.replace(char, f"{key[f'salt_{x}']}{key[char]}{key[f'salt_{x}']}")
 
-    text = text.replace("A", key["A"])
-    text = text.replace("B", key["B"])
-    text = text.replace("C", key["C"])
-    text = text.replace("D", key["D"])
-    text = text.replace("E", key["E"])
-    text = text.replace("F", key["F"])
-    text = text.replace("G", key["G"])
-    text = text.replace("H", key["H"])
-    text = text.replace("I", key["I"])
-    text = text.replace("J", key["J"])
-    text = text.replace("K", key["K"])
-    text = text.replace("L", key["L"])
-    text = text.replace("M", key["M"])
-    text = text.replace("N", key["N"])
-    text = text.replace("O", key["O"])
-    text = text.replace("P", key["P"])
-    text = text.replace("Q", key["Q"])
-    text = text.replace("R", key["R"])
-    text = text.replace("S", key["S"])
-    text = text.replace("T", key["T"])
-    text = text.replace("U", key["U"])
-    text = text.replace("V", key["V"])
-    text = text.replace("W", key["W"])
-    text = text.replace("X", key["X"])
-    text = text.replace("Y", key["Y"])
-    text = text.replace("Z", key["Z"])
+    for char in ascii_uppercase:
+        text = text.replace(char, key[char])
 
-    text = text.replace("0", key["digit_0"])
-    text = text.replace("1", key["digit_1"])
-    text = text.replace("2", key["digit_2"])
-    text = text.replace("3", key["digit_3"])
-    text = text.replace("4", key["digit_4"])
-    text = text.replace("5", key["digit_5"])
-    text = text.replace("6", key["digit_6"])
-    text = text.replace("7", key["digit_7"])
-    text = text.replace("8", key["digit_8"])
-    text = text.replace("9", key["digit_9"])
+    for x, digit in enumerate(digits):
+        text = text.replace(digit, key[f"digit_{x}"])
 
     text = text.replace(" ", key["space"])
     text = text.replace(".", key["period"])
@@ -217,7 +161,7 @@ def cipher():
     console.print(f"[i]Ciphered[/i]: {text}")
 
 
-def decipher():
+def decipher_text():
     check_key()
 
     key = load_key()
@@ -257,7 +201,7 @@ def decipher():
 
 
 def cipher_file():
-    key_check()
+    check_key()
 
     file = console.input("[i]File[/i]: ")
 

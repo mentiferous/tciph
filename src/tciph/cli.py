@@ -1,7 +1,7 @@
 import argparse
 
 from tciph import __version__
-from tciph.core import cipher, cipher_file, decipher, decipher_file, gen_key
+from tciph.core import cipher_text, cipher_file, decipher_text, decipher_file, gen_key
 
 
 def main():
@@ -48,10 +48,10 @@ def main():
         gen_key()
 
     elif args.cipher:
-        cipher()
+        cipher_text()
 
     elif args.decipher:
-        decipher()
+        decipher_text()
 
     elif args.cipher_file:
         cipher_file()
