@@ -2,8 +2,8 @@ from pathlib import Path
 from string import ascii_lowercase, ascii_uppercase
 
 from tciph.key.characters import characters
-from tciph.utils.compression import compress, decompress
 from tciph.utils.console import console
+from tciph.utils.encoding import encocde, decode
 
 
 def gen_key():
@@ -132,7 +132,7 @@ def cipher():
 
     text = console.input("[i]Cipher[/i]: ")
 
-    text = compress(text)
+    text = encode(text)
 
     text = text.replace("a", f"{key['salt_0']}{key['a']}{key['salt_0']}")
     text = text.replace("b", f"{key['salt_1']}{key['b']}{key['salt_1']}")
@@ -251,7 +251,7 @@ def decipher():
     text = text.replace(key["plus"], "+")
     text = text.replace(key["forward_slash"], "/")
 
-    text = decompress(text)
+    text = decode(text)
 
     console.print(f"[i]Deciphered[/i]: {text}")
 
@@ -266,7 +266,7 @@ def cipher_file():
     with open(file, "r") as f:
         text = f.read()
 
-    text = compress(text)
+    text = encode(text)
 
     key = load_key()
 
@@ -393,7 +393,7 @@ def decipher_file():
     text = text.replace(key["plus"], "+")
     text = text.replace(key["forward_slash"], "/")
 
-    text = decompress(text)
+    text = decode(text)
 
     with open(file, "w") as f:
         f.write(text)
