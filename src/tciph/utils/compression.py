@@ -1,9 +1,9 @@
-from base64 import b64decode, b64encode
+from base64 import b85decode, b85encode
 
 
 def compress(char):
-    return b64encode(char.encode()).decode()
+    return b85encode(char.encode()).decode()
 
 
 def decompress(char):
-    return b64decode(char.encode()).decode()
+    return b85decode(char.encode()).decode()

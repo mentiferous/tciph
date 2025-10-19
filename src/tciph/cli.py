@@ -5,10 +5,7 @@ from tciph.core import cipher, cipher_file, decipher, decipher_file, gen_key
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        prog="tciph",
-        description="",
-    )
+    parser = argparse.ArgumentParser(prog="tciph")
 
     parser.add_argument(
         "-V",
