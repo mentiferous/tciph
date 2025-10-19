@@ -13,13 +13,6 @@ options:
   --decipher-file  decipher plaintext from a file
 ```
 
-## Features
-
-- Compression
-- Substitution
-- Rotation
-- Salting
-
 ## License
 
 [MIT License](LICENSE)
