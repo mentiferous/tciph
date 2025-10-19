@@ -1,7 +1,7 @@
 import argparse
 
 from tciph import __version__
-from tciph.core import cipher_text, cipher_file, decipher_text, decipher_file, gen_key
+from tciph.core import cipher_file, cipher_text, decipher_file, decipher_text, gen_key
 
 
 def main():

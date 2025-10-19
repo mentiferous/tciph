@@ -2,6 +2,7 @@ from pathlib import Path
 from string import ascii_lowercase, ascii_uppercase, digits
 
 from tciph.key.characters import characters
+from tciph.utils.compression import compress_data, decompress_data
 from tciph.utils.console import console
 from tciph.utils.encoding import decode, encode
 
