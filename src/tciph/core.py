@@ -8,12 +8,12 @@ from tciph.utils.encoding import decode, encode
 
 def gen_key():
     with open("key.py", "w") as f:
-        f.write(characters.strip("\n"))
+        f.write(characters)
 
     console.print(f"[b][*][/b] Key generated")
 
 
-def key_check():
+def check_key():
     if not Path("key.py").is_file():
         gen_key()
 
@@ -126,7 +126,7 @@ def load_key():
 
 
 def cipher():
-    key_check()
+    check_key()
 
     key = load_key()
 
@@ -218,7 +218,7 @@ def cipher():
 
 
 def decipher():
-    key_check()
+    check_key()
 
     key = load_key()
 
@@ -355,7 +355,7 @@ def cipher_file():
 
 
 def decipher_file():
-    key_check()
+    check_key()
 
     file = console.input("[i]File[/i]: ")
 

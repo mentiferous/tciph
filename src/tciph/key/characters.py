@@ -120,4 +120,6 @@ salt_24="{get_greek_symbols()}"
 salt_25="{get_greek_symbols()}"
 
 rotate={get_rotation()}
-"""
+""".strip(
+    "\n"
+)
